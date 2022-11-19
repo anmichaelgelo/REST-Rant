@@ -7,7 +7,7 @@ function new_form () {
           <main>
             <h1>Add a New Place</h1>
 
-            <form method="POST" action="/places" className='row'>
+            <form method="POST" action="/places" className='row p-3'>
                 <div className='form-group col-sm-6'>
                     <label htmlFor="name">Place Name</label>
                     <input type="text" id="name" name="name" required className='form-control' />
