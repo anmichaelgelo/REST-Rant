@@ -1,9 +1,11 @@
 const express = require("express")
-let router = express.Router()
-
+const router = express.Router()
+const places = require('../models/places');
 
 router.get('/', (req, res) => {
-    res.send('GET /places')
+    res.render('places/index', {
+        places
+    });
 });
 
 module.exports = router
