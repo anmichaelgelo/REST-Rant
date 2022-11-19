@@ -1,6 +1,5 @@
 body {
     background-color: lightblue;
-    text-align: center;
 }
 
 main {
@@ -17,6 +16,7 @@ h1 {
 nav {
     background-color: cornflowerblue;
     padding: 10px;
+    text-align: center;
 }
 
 nav ul {
@@ -37,4 +37,9 @@ nav a {
 nav a:hover {
     color: pink;
     text-decoration: none;
+}
+
+
+.form-group{
+    margin-bottom: 15px;
 }
