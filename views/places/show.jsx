@@ -7,7 +7,7 @@ function show (data) {
             <main>
                 <div className="row p-3">
                     <div className="col">
-                        <img src={`../../${data.place.pic}`} 
+                        <img src={`${data.place.pic}`} 
                             alt={data.place.name} 
                             className="img-fluid" />
                     </div>

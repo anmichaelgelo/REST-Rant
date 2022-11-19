@@ -4,7 +4,7 @@ const Def = require('./default')
 function home () {
     return (
         <Def>
-            <main>
+            <main className='p-3'>
                 <h1>HOME</h1>
                 <div>
                     <img src="/images/chia-fruit-drink.jpg" 
