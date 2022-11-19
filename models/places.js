@@ -1,15 +1,15 @@
 let places = [{
-    name: 'H-Thai-ML',
-    city: 'Seattle',
-    state: 'WA',
-    cuisines: 'Thai, Pan-Asian',
-    pic: 'http://placekitten.com/250/250'
-  }, {
-    name: 'Coding Cat Cafe',
-    city: 'Phoenix',
-    state: 'AZ',
-    cuisines: 'Coffee, Bakery',
-    pic: 'http://placekitten.com/250/250'
+  name: 'H-Thai-ML',
+  city: 'Seattle',
+  state: 'WA',
+  cuisines: 'Thai, Pan-Asian',
+  pic: 'images/thai-pan-asian.jpg'
+}, {
+  name: 'Coding Cat Cafe',
+  city: 'Phoenix',
+  state: 'AZ',
+  cuisines: 'Coffee, Bakery',
+  pic: 'images/coding-cat-cafe.jpg'
 }];
 
 module.exports = places;
