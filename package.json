@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "nodemon index.js"
+    "watch": "nodemon index.js",
+    "seed": "node seeders/seed-places.js"
   },
   "keywords": [],
   "author": "",
