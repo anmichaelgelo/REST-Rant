@@ -4,15 +4,15 @@ const db = require('../models');
 
 // INDEX
 router.get('/', (req, res) => {
-    db.Place.find()
+    db.Place.find() // get all documents from Place collection
         .then(places => {
             res.render('places/index', {
                 places
             });
         })
         .catch(err => {
-            console.log(err)
-            res.render('error404')
+            console.log(err) // show error in the console
+            res.render('error404') // render 404 page if error occurs
         })
 });
 
@@ -36,15 +36,13 @@ router.post('/', (req, res) => {
 
 // SHOW 
 router.get('/:id', (req, res) => {
-    let id = Number(req.params.id)
-    if (isNaN(id) || !places[id]) {
-      res.render('error404')
-    } else {
-        res.render('places/show', { 
-            place: places[id],
-            id
-        })
-    }
+    db.Place.findById(req.params.id) // pass the object id
+        .then(place => {
+            res.render('places/show', { place }) // pass the selected place
+        }).catch(err => {
+            console.log(err); // show error in the console
+            res.render('error404'); // render 404 page if error occurs
+        });
 });
 
 // EDIT
@@ -92,6 +90,6 @@ router.delete('/:id', (req, res) => {
       places.splice(id, 1)
       res.redirect('/places')
     }
-})  
+});
 
 module.exports = router
