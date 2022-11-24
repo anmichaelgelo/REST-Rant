@@ -33,7 +33,12 @@ function new_form () {
                     <input type="text" id="cuisines" name="cuisines" required className='form-control' />
                 </div>
 
-                <div className='form-group col-sm-6'>
+                <div className="form-group col-sm-6">
+                    <label for="founded">Founded Year</label>
+                    <input className="form-control" id="founded" name="founded" />
+                </div>
+
+                <div className='form-group'>
                     <br />
                     <button type="submit" className='btn btn-primary'>Add Place</button>
                 </div>

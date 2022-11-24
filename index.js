@@ -1,9 +1,8 @@
-// let http = require('http');
 require('dotenv').config();
-const port = process.env.PORT;
 const express = require('express');
 const app = express();
 const methodOverried = require('method-override');
+const port = process.env.PORT;
 
 // middleware
 app.set('view engine', 'jsx');
