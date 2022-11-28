@@ -45,6 +45,7 @@ router.post('/', (req, res) => {
 // SHOW 
 router.get('/:id', (req, res) => {
     db.Place.findById(req.params.id) // pass the object id
+        .populate('comments')
         .then(place => {
             res.render('places/show', { place }) // pass the selected place
         }).catch(err => {
