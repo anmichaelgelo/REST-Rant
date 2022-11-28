@@ -11,7 +11,7 @@ function show (data) {
     if(data.place.comments.length > 0){
         comments = data.place.comments.map(c => {
             return (
-                <div className="border">
+                <div className="border p-2 col-sm-4" key={c.id}>
                     <h2 className="rant">{c.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
                     <h4>{c.content}</h4>
                     <h3>
@@ -20,7 +20,7 @@ function show (data) {
                     <h4>Rating: {c.stars}</h4>
                 </div>
             )
-        });
+        })
     }
 
     return (
@@ -43,11 +43,11 @@ function show (data) {
                         <h4>Serving {data.place.cuisines}</h4>
 
                         <div className='d-flex justify-content-center'>
-                            <a href={`/places/${data.id}/edit`} className="btn btn-warning">Edit</a>
+                            <a href={`/places/${data.place.id}/edit`} className="btn btn-warning">Edit</a>
                             
                             <div className="mx-1"></div>
                             
-                            <form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
+                            <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}> 
                                 <button type="submit" className="btn btn-danger">Delete</button>
                             </form> 
                         </div>  
@@ -59,7 +59,53 @@ function show (data) {
 
                 <div className='row p-3'>
                     <h2>Comments</h2>
+                    <div className="row">
                     {comments}
+                    </div>
+                </div>
+
+                <div className="row p-3">
+                    <h1>Got your own Rant or Rave?</h1>
+                    <form method="POST" action={`${data.place._id}/comment`} className='row p-3'>
+                        <div className='form-group col-12'>
+                            <label htmlFor="content">Content</label>
+                            <textarea id="content" 
+                                name="content" 
+                                className='form-control'></textarea>
+                        </div>
+
+                        <div className='form-group col-sm-4'>
+                            <label htmlFor="author">Author</label>
+                            <input type="text" 
+                                id="author" 
+                                name="author" 
+                                className='form-control' />
+                        </div>
+
+                        <div className='form-group col-sm-4'>
+                            <label htmlFor="stars" className="form-label">Star Rating</label>
+                            <input type="range" 
+                                className="form-range" 
+                                step="0.5"
+                                id="stars" 
+                                min="1"
+                                value="1"
+                                max="5"
+                                name="stars"
+                                required />
+                        </div>
+
+                        <div className="form-group col-sm-4">
+                            <div class="form-check d-flex flex-column-reverse align-items-center">
+                                <input className="form-check-input" type="checkbox" name="rant" id="rant" />
+                                <label className="form-check-label" htmlFor="rant">Rant?</label>
+                            </div>
+                        </div>
+
+                        <div className='form-group'>
+                            <button type="submit" className='btn btn-primary'>Add Comment</button>
+                        </div>
+                    </form>
                 </div>
             </main>
         </Def>

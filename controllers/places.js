@@ -67,6 +67,7 @@ router.get('/:id/edit', (req, res) => {
     }
 });
 
+// UPDATE
 router.put('/:id', (req, res) => {
     let id = Number(req.params.id)
     if (isNaN(id) || !places[id]) {
@@ -99,6 +100,30 @@ router.delete('/:id', (req, res) => {
       places.splice(id, 1)
       res.redirect('/places')
     }
+});
+
+// ADD COMMENTS
+router.post('/:id/comment', (req, res) => {
+    req.body.rant = req.body.rant 
+        ? true 
+        : false
+        
+    db.Place.findById(req.params.id)
+        .then(foundPlace => {
+            db.Comment.create(req.body)
+                .then(createdComment => {
+                    foundPlace.comments.push(createdComment.id);
+                    foundPlace.save()
+                        .then(() => {
+                            res.redirect(200, `/places/${req.params.id}`);
+                        });
+                });
+        })
+        .catch(err => {
+            console.log(err);
+            res.render('error404')
+        });
+    // res.send(req.body);
 });
 
 module.exports = router
