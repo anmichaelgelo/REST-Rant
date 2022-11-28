@@ -15,3 +15,4 @@ mongoose.connect(connString, {
 });
 
 module.exports.Place = require('./places')
+module.exports.Comment = require('./comments')
