@@ -40,6 +40,10 @@ function show (data) {
                         <strong>- {c.author}</strong>
                     </h3>
                     <h4>Rating: {c.stars}</h4>
+
+                    <form action={`/places/${data.place.id}/comment/${c.id}?_method=DELETE`} method="post">
+                        <button type="submit" className='btn btn-danger'>Delete Comment</button>
+                    </form>
                 </div>
             )
         })
@@ -120,7 +124,7 @@ function show (data) {
                         </div>
 
                         <div className="form-group col-sm-4">
-                            <div class="form-check d-flex flex-column-reverse align-items-center">
+                            <div className="form-check d-flex flex-column-reverse align-items-center">
                                 <input className="form-check-input" type="checkbox" name="rant" id="rant" />
                                 <label className="form-check-label" htmlFor="rant">Rant?</label>
                             </div>

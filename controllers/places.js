@@ -75,28 +75,9 @@ router.put('/:id', (req, res) => {
             res.redirect(`/places/${req.params.id}`);
         })
         .catch(err => {
-
+            console.log(err);
+            res.render('error404')
         });
-    // let id = Number(req.params.id)
-    // if (isNaN(id) || !places[id]) {
-    //     res.render('error404')
-    // } else {
-    //     // Dig into req.body and make sure data is valid
-    //     if (!req.body.pic) {
-    //         // Default image if one is not provided
-    //         req.body.pic = 'http://placekitten.com/400/400'
-    //     }
-    //     if (!req.body.city) {
-    //         req.body.city = 'Anytown'
-    //     }
-    //     if (!req.body.state) {
-    //         req.body.state = 'USA'
-    //     }
-  
-    //     // Save the new data into places[id]
-    //     places[id] = req.body
-    //     res.redirect(`/places/${id}`)
-    // }
 })  
 
 // DELETE
@@ -133,6 +114,17 @@ router.post('/:id/comment', (req, res) => {
             res.render('error404')
         });
     // res.send(req.body);
+});
+
+router.delete('/:placeId/comment/:id', (req, res) => {
+    db.Comment.findByIdAndDelete(req.params.id)
+        .then(() => {
+            res.redirect(`/places/${req.params.placeId}`);
+        })
+        .catch(err => {
+            console.log(err);
+            res.render('error404');
+        });
 });
 
 module.exports = router
