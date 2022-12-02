@@ -7,8 +7,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "nodemon index.js",
-    "seed": "node seeders/seed-places.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
